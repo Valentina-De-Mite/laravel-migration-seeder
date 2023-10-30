@@ -1,35 +1,36 @@
 <?php
 
 namespace Database\Seeders;
-
+use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\trains;
+use DateInterval;
 
 class TrainsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run()
-    {
-        $trains = [
-            
-        ];
+    public function run(Faker $faker): void{
 
-    foreach ($trains as $train)
-        {
-            $newTrain = new Trains ();
-            $newTrain->company = $train['company'];
-            $newTrain->d_station = $train['departure_station'];
-            $newTrain->a_station = $train['arrival_station'];
-            $newTrain->arrival = $train['arrival_time'];
-            $newTrain->code = $train['code'];
-            $newTrain->carriages = $train['n_carriages'];
-            $newTrain->on_schedule = $train['on_schedule'];
-            $newTrain->delete = $train['deleted'];
+        for ($i = 0; $i < 10; $i++)
+                {
+                    $Train = new Trains ();
+                    $Train->conpany = $faker->company;
+                    $Train->departure_station = $faker->city();
+                    $Train->arrival_station = $faker->city();
+                    $Train->departure_time = $faker->dateTimeBetween();
+                    $Train->arrival_time = $faker->dateTimeBetween('-1 hour', '+7 hour');
+                    $Train->code = $faker->bothify();
+                    $Train->n_carriages = $faker->randomNumber(5, false);
+                    $Train->on_schedule = $faker->boolean();
+                    $Train->delete = $faker->boolean();
+                    $Train->save();
+                }
 
-        }
-
+        
     }
+
+    
 }
