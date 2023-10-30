@@ -17,15 +17,15 @@ class TrainsTableSeeder extends Seeder
         for ($i = 0; $i < 10; $i++)
                 {
                     $Train = new Trains ();
-                    $Train->conpany = $faker->company;
+                    $Train->company = $faker->company;
                     $Train->departure_station = $faker->city();
                     $Train->arrival_station = $faker->city();
                     $Train->departure_time = $faker->dateTimeBetween();
-                    $Train->arrival_time = $faker->dateTimeBetween('-1 hour', '+7 hour');
+                    $Train->arrival_time = $faker->dateTimeBetween('-1 hour', '+1 hour');
                     $Train->code = $faker->bothify();
                     $Train->n_carriages = $faker->randomNumber(5, false);
                     $Train->on_schedule = $faker->boolean();
-                    $Train->delete = $faker->boolean();
+                    $Train->deleted = $faker->boolean();
                     $Train->save();
                 }
 

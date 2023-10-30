@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('n_carriages');
             $table->boolean('on_schedule');
             $table->boolean('deleted');
+            $table->timestamps();
 
             
         });
