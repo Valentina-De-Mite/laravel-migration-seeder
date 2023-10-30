@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('company')->nullable();
             $table->string('departure_station')->nullable();
-            $table->string('arrival station')->nullable();
+            $table->string('arrival_station')->nullable();
             $table->dateTime('departure_time')->nullable();
             $table->dateTime('arrival_time')->nullable();
             $table->string('code')->nullable();
